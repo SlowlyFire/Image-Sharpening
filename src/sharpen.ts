@@ -51,6 +51,12 @@ async function sharpenImage(inputPath: string, outputPath: string) {
   console.log(`Done! Sharpened image saved to: ${outputPath}`);
 }
 
-// Change these paths to your input/output images
-sharpenImage('input.png', 'output.png')
+// Get filename from command line argument, or use default
+const inputFile = process.argv[2] || 'input.png';
+const outputFile = 'output.png';
+
+console.log(`Input: ${inputFile}`);
+console.log(`Output: ${outputFile}`);
+
+sharpenImage(inputFile, outputFile)
   .catch(err => console.error('Error:', err));
